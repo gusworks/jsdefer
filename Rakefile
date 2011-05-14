@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "jsdefer"
   gem.homepage = "https://github.com/gusworks/jsdefer"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: Javascript deferring to improve page speed}
-  gem.description = %Q{TODO: TODO: Javascript deferring to improve page speed}
+  gem.summary = %Q{Javascript deferring to improve page speed}
+  gem.description = %Q{Javascript deferring to improve page speed}
   gem.email = "pbalduino+github@gmail.com"
   gem.authors = ["Plinio Balduino"]
   # dependencies defined in Gemfile
