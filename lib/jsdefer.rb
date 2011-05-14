@@ -1,6 +1,6 @@
 puts "-------> included <----------"
 module ActionView
-  module Base
+  class Base
     def defer(tag)
       puts "------> ok <-------------"
     end
