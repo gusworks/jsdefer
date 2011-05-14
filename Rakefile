@@ -15,10 +15,10 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "jsdefer"
-  gem.homepage = "http://github.com/pbalduino/jsdefer"
+  gem.homepage = "https://github.com/gusworks/jsdefer"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{TODO: Javascript deferring to improve page speed}
+  gem.description = %Q{TODO: TODO: Javascript deferring to improve page speed}
   gem.email = "pbalduino+github@gmail.com"
   gem.authors = ["Plinio Balduino"]
   # dependencies defined in Gemfile
