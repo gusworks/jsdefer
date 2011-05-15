@@ -1,37 +1,34 @@
-class JsDefer
-  @tag_list = []
-
-  def initialize
-    @tag_list = []
-  end
-  
-  def push(tag)
-    @tag_list << tag
-  end
-  
-  def flush
-    ret = ""
-    @tag_list.each do |tag|
-      ret += tag
+module ActionView
+  class JsDefer
+    def initialize
+      @tag_list = []
     end
     
-    @tag_list = []
+    def push(tag)
+      @tag_list << tag
+    end
     
-    ret
+    def flush
+      ret = ""
+      @tag_list.each do |tag|
+        ret += tag
+      end
+      
+      @tag_list = []
+      
+      ret
+    end
   end
 
-end
-
-defer = JsDefer.new
-
-module ActionView
   class Base
     def defer(tag)
-      defer.push tag
+      @defer = JsDefer.new unless @defer
+      @defer.push tag
     end
     
     def render_js
-      defer.flush
+      @defer.flush if @defer
     end
+    
   end
 end
