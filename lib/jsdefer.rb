@@ -1,35 +1,52 @@
 class JsDefer
-  puts "<--JsDefer-->"
-  def self.push(tag)
-    self.tag_list = [] unless self.tag_list
-    self.tag_list << tag
+ 
+  def initialize
+    @file_list = []
+    @script_list = []
   end
   
-  def self.flush
-    self.tag_list = [] unless self.tag_list
+  def push_file(file)
+    @file_list << file
+  end
+  
+  def push_script(script)
+    @script_list << script
+  end
+    
+  def flush
     ret = ""
-    self.tag_list.each do |tag|
-      ret += tag
+    @file_list.each do |file|
+      puts "[#{file}]"
+      ret += "#{file}\n"
+    end
+
+    @script_list.each do |script|
+      puts "[#{script}]"
+      ret += "#{script}\n"
     end
     
-    self.tag_list = []
-    
+    @file_list.clear
+    @script_list.clear
+
     ret
+  end
+  
+  @@instance = JsDefer.new
+
+  def self.instance
+    @@instance
   end
 end
 
-puts "<--------->"
-
 module ActionView
-  puts "<--ActionView-->"
   class Base
-    puts "<--Base-->"
     def defer(tag)
-      JsDefer.push tag
+   
+      JsDefer.instance.push_file tag
     end
     
     def render_js
-      JsDefer.flush
+      JsDefer.instance.flush
     end
     
   end
